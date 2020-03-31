@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FCMM ONLINE SHOP</title>
+    <link rel="icon" href="/img/fcmm_logo.jpg">
+    <!-- <link rel="stylesheet" href="./css/index.css"> -->
+    <!-- <script src="./js/index.js"></script>  -->
+    <script src="./js/jquery-3.3.1.js"></script>
+    <style>
+        *{margin: 0; padding: 0; text-decoration: none; color: black; }
+body{width: 100%; height: 100%;}
+ul,li{list-style: none;}
+#wrap{width: 100%; margin: 0 auto;}
+
+
+.span_color{color: gray;}
+
+.site_header{width: 100%; max-height: 100px; font-size: 0.7em; display: flex; justify-content: space-between; position: fixed; top: 0; background: #fff; opacity: 0.7;}
+.head_nav{width: 1000px; max-height: 100px; text-align: center; line-height: 100px;}
+/* .head_logo img{display: flex; align-items: center;} */
+.head_logo{padding: 30px;}
+.head_nav li{display: inline;}
+.click_border{border-top: 1px solid #000;}
+.head_nav a{ padding: 10px;}
+
+.container{width: 100%; margin: 0 auto;}
+
+.span_color:hover{color: black; transition: 0.5s;}
+/*ALL*/
+.sec_text{margin-top: 20vh; text-align: center;}
+
+.sec_fitst_nav_box{
+    max-height: 200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+.click_color{background-color: black; color: white;}
+/* all.....outer */
+.sec_first_nav{ margin: 50px 0 0 0; padding: 10px; text-align: center; font-weight: bold;}
+.sec_first_nav button{ padding: 10px; transition: 0.5s; min-width: 60px; border: 1px solid #fff;}
+.sec_first_nav button:hover{background: #000; color: white; transition: 0.5s;}
+
+.site_section{width: 80%; margin: 0 auto;}
+
+/* 낮은가격 */
+.sec_sub_menu{height: 50px; font-size: 12px; line-height: 30px;}
+.sec_sub_menu a{ color: #707070;}
+.sec_sub_menu a:hover{ color: #000;}
+.sec_sub_menu li{float: right; display: inline; padding: 10px;}
+
+
+
+/*중간 사진*/
+/* .sec_main_menu{background: rgb(248, 248, 248); display: flex; height: auto; width: 400px; transition: 1s;} */
+/* .sec_main_menu img{width: 400px; height: auto; padding: 20px 20px 0px 20px; object-fit: cover; }
+.sec_main_menu img:nth-child(1){margin-left: 0;} */
+.sec_p{display: block; text-align: center;}
+.sec_span{font-weight: bold;}
+.bird{font-weight: bold; color: rgb(26, 132, 194);}
+#wrap_img{margin: 0 auto; text-align: center; width: 100%; height: auto;}
+
+
+
+.sec_main_menu{display: inline-block;background: rgb(248, 248, 248); margin: 0;}
+.sec_main_menu a {display: inline-block;}
+.sec_main_menu img{max-width: 350px; max-height: 350px; margin: 0 auto;}
+/* .sec_main_menu2 img:nth-child(1), .sec_main_menu3 img:nth-child(1), .sec_main_menu4 img:nth-child(1){margin-left: 0;} */
+
+/* .menu_sec{width: 70px; text-align: center; margin: 0 auto; position: relative; display: flex; justify-content: space-around;}
+.menu_sec_sub{display: block; border: 1px solid #000; width: 18px; transition: 0.5s;  margin-right: 20px; margin-bottom: 20px;}
+.menu_sec_sub:hover{background: #000; color: white; transition: 0.5s;} */
+
+/*footer*/
+
+
+.f_banner{width: 100%; max-height: 150px; padding-top: 60px; border-top: 1px solid rgb(170, 163, 163); display: flex; justify-content: space-evenly;}
+.f_num{width: 20%; height: 150px; display: block; float: left; position: relative;}
+.f_copy{width: 50%; height: 150px; text-align: center; display: block; position: relative; float: left;}
+.f_sns{width: 20%; max-height: 150px; display: flex; float: left; position: relative; justify-content: space-around;}
+.copy{font-size: 10px;}
+.f_sns img{max-width: 40px; max-height: 40px; cursor: pointer;}
+
+
+@media(max-width:1000px){
+
+    .f_num{font-size: 0.8em;}
+    .f_copy{font-size: 0.8em;}
+    .f_sns{font-size: 0.8em;}
+}
+
+
+@media(max-width:850px){
+    h3{margin: 0 auto;}
+    nav{display: none;}
+
+    .f_num{font-size: 0.7em;}
+    .f_copy{font-size: 0.7em;}
+    .f_sns{font-size: 0.7em;}
+}
+
+.f_num2{width: 20%; height: 40px; float: left; position: relative;background: rgb(49, 211, 34); text-align: center; display: inline-block; line-height: 40px; border-radius: 20px; box-shadow: 2px 3px 5px 0px gray; font-size: 0.8em;}
+.f_num2 a{color: white;}
+.f_num2{display: none;}
+@media(max-width:650px){
+
+    .f_num{font-size: 0.6em;}
+    .f_copy{font-size: 0.6em;}
+    .f_sns{font-size: 0.6em;}
+
+    .f_num{display: none;}
+    .f_num2{display: block;}
+}
+
+
+.f_num_pop{width: 200px; height: 100px;  position: absolute;  left: 50%;transform:translateX(-50%); background-color: #fff; z-index: 100; text-align: center; line-height: 100px; font-weight: bold; display: none; }
+
+
+    </style>
+</head>
+<script>
+    function toggleTab(){
+    const target = $(this).attr('button')
+    $('.sec_first_nav .click_color').removeClass('click_color')//클래스 안의 저 클래스 모두 삭제
+    $(this).addClass('click_color')//자신에게 클래스 넣어줌
+    $(target).addClass('click_color')//타겟에 바뀐 내용 적용
+    return false
+}
+
+// var bottom = $("#bottom").css({"display":"inline-block"}).siblings().css({"display":"none"})
+
+// var bottom = document.getElementById("bottom")
+
+// function siblingsToggleTop(){
+//     $("#top").show().siblings().hide();
+// }
+
+function siblingsToggleOuter(){
+    $("#outer").show().siblings().show();
+    $("#outer").show();
+    $( '.sec_main_menu a' ).not( 'a#outer' ).hide();
+}
+
+function siblingsToggleTop(){
+    $("#top").show().siblings().show();
+    $("#top").show();
+    $( '.sec_main_menu a' ).not( 'a#top' ).hide();
+}
+
+function siblingsToggleBottom(){
+    $("#bottom").show().siblings().show();
+    $("#bottom").show();
+    $( '.sec_main_menu a' ).not( 'a#bottom' ).hide();
+}
+
+function siblingsToggleShoes(){
+    $("#shoes").show().siblings().show();
+    $("#shoes").show();
+    $( '.sec_main_menu a' ).not( 'a#shoes' ).hide();
+}
+
+function siblingsToggleAcc(){
+    $("#acc").show().siblings().show();
+    $("#acc").show();
+    $( '.sec_main_menu a' ).not( 'a#acc' ).hide();
+}
+
+function siblingsToggleCosmetics(){
+    $("#cosmetics").show().siblings().show();
+    $("#cosmetics").show();
+    $( '.sec_main_menu a' ).not( 'a#cosmetics' ).hide();
+}
+
+function siblingsToggleDog(){
+    $("#dog").show().siblings().show();
+    $("#dog").show();
+    $( '.sec_main_menu a' ).not( 'a#dog' ).hide();
+}
+
+function siblingsToggleBurning(){
+    $("#burning").show().siblings().show();
+    $("#burning").show();
+    $( '.sec_main_menu a' ).not( 'a#burning' ).hide();
+}
+
+function siblingsToggleWater(){
+    $("#water").show().siblings().show();
+    $("#water").show();
+    $( '.sec_main_menu a' ).not( 'a#water' ).hide();
+}
+
+function siblingsToggleOulet(){
+    $("#oulet").show().siblings().show();
+    $("#oulet").show();
+    $( '.sec_main_menu a' ).not( 'a#oulet' ).hide();
+}
+
+function siblingsToggleAll(){
+    $("#oulet").show().siblings().show();
+}
+
+
+// function clickTel(){
+//         $("body").css({"background":"black"}).css({"z-index":"90"}).css({"opacity":"0.2"})
+//         $(".f_num_pop").css({"display":"block"}).css({"z-index":"100"});
+// }
+
+
+
+$(document).on('click','.sec_first_nav button', toggleTab).on('click','#box_all',siblingsToggleAll).on('click','#box_outer',siblingsToggleOuter).on('click','#box_top',siblingsToggleTop).on('click','#box_shoes',siblingsToggleShoes).on('click','#box_bottom',siblingsToggleBottom).on('click','#box_acc',siblingsToggleAcc).on('click','#box_cosmetics',siblingsToggleCosmetics).on('click','#box_dog',siblingsToggleDog).on('click','#box_burning',siblingsToggleBurning).on('click','#box_water',siblingsToggleWater).on('click','#box_oulet',siblingsToggleOulet)//클릭하면 .sec_first_nav a에 적용
+
+// 해당 a 클릭시에 ''클래스 제외 전부 삭제 h1 에 innerHTML
+
+</script>
+<body>
+    <!--flex column이랑 row 예정 / html 내용 추가 예정-->
+<div id="wrap">
+    <div class="container">
+        <header class="wrap_header">
+            <div class="site_header">
+            <h3 class="head_logo"><a href=""><img src="img/logo.png" alt="logo"></a></h3>
+            <nav class="head_nav">
+                   <div class="head_nav_box">
+                <ul>
+                    <!-- <li> <a href="#!">ABOUT US</a> </li>
+                    <li> <a href="#!">LOOKBOOK</a> </li>
+                    <li> <a href="#!">OFFLINE SHOP</a> </li>
+                    <li class="click_border"> <a href="#!">ONLINE SHOP</a> </li>
+                    <li> <a href="#!"><span class="span_color">LOGIN</span></a> </li>
+                    <li> <a href="#!"><span class="span_color">JOIN US</span></a> </li>
+                    <li> <a href="#!"><span class="span_color">MY PAGE</span></a> </li>
+                    <li> <a href="#!"><span class="span_color">COMMUNITY</a> </li> -->
+                    <li> <a href="https://www.facebook.com/FCMM-284975055213189/">FACEBOOK</a> </li>
+                    <li> <a href="https://www.instagram.com/fcmm_official/?hl=ko">INSTARGRAM</a> </li>
+                    <li> <a href="https://m.fcmm.kr/_dj/page/shop/list.html">OFFLINE SHOP</a> </li>
+                    <li class="click_border"> <a href="">ONLINE SHOP</a> </li>
+                    <li> <a href="https://www.facebook.com/profile.php?id=100015472840114"><span class="span_color">DEVELOPER</span></a> </li>
+                    <li> <a href="http://www.sdh.hs.kr/"><span class="span_color">DIGITECH</span></a> </li>
+                    <li> <a href="https://github.com/minhoo03"><span class="span_color">GITHUB</span></a> </li>
+                    <li> <a href="http://fcmm.kr/"><span class="span_color">FCMM</a> </li>
+                </ul>
+            </div>
+            </nav>
+         </div>
+        </header>
+
+        <section class="site_section">
+            <h1 class="sec_text">ONLINE SHOP</h1>
+ 
+        <div class="sec_fitst_nav_box">
+            <div class="sec_first_nav">
+                <button id="box_all"  class="click_color">ALL</button> 
+                <button id="box_outer">Outer</button> 
+                <button id="box_top">Top</button> 
+                <button id="box_bottom">Bottom</button> 
+                <button id="box_shoes">Shoes</button> 
+                <button id="box_acc">Acc</button> 
+                <button id="box_cosmetics">Cosmetics</button> 
+                <button id="box_dog">Healthy life with dog</button> 
+                <button id="box_burning">Burning effect</button> 
+                <button id="box_water">Water sports</button> 
+                <button id="box_oulet">Oulet</button> 
+            </div>
+        </div>
+            <div class="sec_sub_menu">
+                <li><a href="#!">신상품</a></li>
+                <li><a href="#!">상품명</a></li>
+                <li><a href="#!">낮은가격</a></li>
+                <li><a href="#!">높은가격</a></li>
+            </div>
+       
+        <div id="wrap_img">
+            <div class="sec_main_menu">
+                <a href="http://fcmm.kr/product/early-bird-padding%ED%81%B4%EB%9F%BD-%EB%B9%85%EB%A1%9C%EA%B3%A0-%EB%9D%BC%EC%9D%B8-%ED%8C%A8%EB%94%A9-%EB%B2%A4%EC%B9%98%EC%BD%94%ED%8A%B8-%ED%99%94%EC%9D%B4%ED%8A%B8-10%EC%9B%94-4%EC%9D%BC-%EC%88%9C%EC%B0%A8%EB%B0%9C%EC%86%A1/731/category/26/display/1/" id="outer"><img src="./img/fcmm_sec_main_1.jpg" alt="menu"><p class="sec_p"><br>클럽 빅로고 라인 패딩 벤치코트 - 화이트<br><span class="sec_span">KRW 99,000</span> </p></a>
+                <a href="http://fcmm.kr/product/%EC%93%B0%EB%A6%AC-%ED%8F%AC-%EC%9C%A0-%EC%84%A0%EB%B9%84%EB%B9%84-%ED%81%AC%EB%A6%BC/609/category/163/display/1/" id="cosmetics"><img src="./img/fcmm_sec_main_cosmetic.jpg" alt="menu"><p class="sec_p"><br>쓰리 포 유 썬 비비 크림<br><span class="sec_span">KRW 14,000</span> </p></a>
+                <a href="http://fcmm.kr/product/%EB%B2%84%EB%8B%9D-%EC%97%90%EC%84%BC%EC%85%9C-%EB%A0%88%EA%B9%85%EC%8A%A4/432/category/66/display/1/" id="water"><img src="./img/fcmm_sec_main_33.jpg" alt="menu"><p class="sec_p"><br>버닝 에센셜 레깅스<br><span class="sec_span">KRW 33,000</span> </p></a>
+                <a href="http://fcmm.kr/product/%EB%9D%BC%EC%9D%B8-%ED%8A%B8%EB%9E%99-%ED%8C%AC%EC%B8%A0/172/category/27/display/1/" id="bottom"><img src="./img/fcmm_sec_main_4.jpg" alt="menu"><p class="sec_p"><br>라인 트랙 팬츠<br><span class="sec_span">KRW 33,000</span> </p></a>
+
+                <a href="http://fcmm.kr/product/%ED%8D%BC%ED%94%BC-%EC%8B%9C%EB%8B%88%EC%96%B4-%ED%94%8C%EB%A6%AC%EC%8A%A4-%ED%9B%84%EB%94%94-%ED%99%94%EC%9D%B4%ED%8A%B8/450/category/88/display/1/" id="dog"><img src="./img/fcmm_sec_main_dog.jpg" alt="menu"><p class="sec_p"><br>퍼피 시니어 플리스 후디 - white<br><span class="sec_span">KRW 32,000</span> </p></a>
+                <a href="http://fcmm.kr/product/early-bird-fleece%EC%82%AC%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8-%ED%94%8C%EB%A6%AC%EC%8A%A4-%ED%9B%84%EB%93%9C-%EC%A0%90%ED%8D%BC-%EC%95%84%EC%9D%B4%EB%B3%B4%EB%A6%AC-10%EC%9B%94-10%EC%9D%BC-%EC%88%9C%EC%B0%A8%EB%B0%9C%EC%86%A1/686/category/26/display/1/" id="burning"><img src="./img/fcmm_sec_main_6.jpg" alt="menu"><p class="sec_p"><span class="bird">[EARLY BIRD FLEECE]<br></span> FCMM 사이드라인 플리스 후드 점퍼 - 아이보리 <br><span class="sec_span">KRW 49,000</span> </p></a>
+                <a href="http://fcmm.kr/product/%EC%9A%B0%EB%A8%BC%EC%8A%A4-%EB%A6%AC%EB%8B%88%EC%96%B4-%EB%9F%AC%EB%8B%9D-%EC%87%BC%EC%B8%A0/290/category/159/display/1/" id="water"><img src="./img/fcmm_sec_main_water.jpg" alt="menu"><p class="sec_p"><br>우먼스 리니어 러닝 쇼츠<br><span class="sec_span">KRW 28,000</span> </p></a>
+                <a href="http://fcmm.kr/product/%EB%A6%AC%EB%8B%88%EC%96%B4-%EB%A1%9C%EA%B3%A0-%ED%8B%B0%EC%85%94%EC%B8%A0-%EB%B8%94%EB%A3%A803%EC%9B%94-13%EC%9D%BC-%EC%88%9C%EC%B0%A8%EB%B0%9C%EC%86%A1/1095/category/158/display/1/" id="oulet"><img src="./img/fcmm_sec_main_oulet.jpg" alt="menu"><p class="sec_p"><br>리니어 로고 티셔츠 - 블루<br><span class="sec_span">KRW 25,000</span> </p></a>
+
+                <a href="http://fcmm.kr/product/%ED%81%B4%EB%9F%BD-%EC%9B%8C%EC%8B%9C%EB%93%9C-%EB%B3%BC%EC%BA%A1-%EB%B8%94%EB%9E%99/627/category/162/display/1/" id="acc"><img src="./img/fcmm_sec_main_acc.jpg" alt="menu"><p class="sec_p"><br>FCMM 클럽 워시드 볼캡<br><span class="sec_span">KRW 29,000</span> </p></a>
+                <a href="http://fcmm.kr/product/%EB%A6%AC%EB%8B%88%EC%96%B4-%EB%A1%9C%EA%B3%A0-%EB%A7%A8%ED%88%AC%EB%A7%A8-%EB%B8%94%EB%9E%99/755/category/26/display/1/" id="top"><img src="./img/fcmm_sec_main_10.jpg" alt="menu"><p class="sec_p"><br>리니어 로고 맨투맨 - 블랙<br><span class="sec_span">KRW 34,900</span> </p></a>
+                <a href="http://fcmm.kr/product/%EB%B9%85%EB%A1%9C%EA%B3%A0-%EB%B0%B1%ED%8C%A9/213/category/92/display/1/" id="acc"><img src="./img/fcmm_sec_main_11.jpg" alt="menu"><p class="sec_p"><br>빅 로고 백팩<br><span class="sec_span">KRW 35,400</span> </p></a>
+                <a href="http://fcmm.kr/product/%EB%A1%9C%EA%B3%A0-%EC%8A%AC%EB%9D%BC%EC%9D%B4%EB%93%9C-%EB%B8%94%EB%9E%99/319/category/63/display/1/" id="shoes"><img src="./img/fcmm_sec_main_12.jpg" alt="menu"><p class="sec_p"><br>로고 슬라이드 - 블랙<br><span class="sec_span">KRW 25,000</span> </p></a>
+
+                <a href="http://fcmm.kr/product/%EB%A0%88%EC%9D%B8%EB%B3%B4%EC%9A%B0-%EC%97%90%ED%94%84%ED%84%B0-%EB%A0%88%EC%9D%B8-%ED%8A%B8%EB%9E%99%ED%8C%AC%EC%B8%A0-%ED%99%94%EC%9D%B4%ED%8A%B8/622/category/27/display/1/" id="bottom"><img src="./img/fcmm_sec_main_13.jpg" alt="menu"><p class="sec_p"><br>레인보우 에프터 레인 트랙팬츠 - 화이트<br><span class="sec_span">KRW 49,000</span> </p></a>
+                <a href="http://fcmm.kr/product/%EB%A1%9C%EA%B3%A0-%ED%85%8C%EC%9D%B4%ED%94%84-%ED%81%AC%EB%A1%AD-%ED%8A%B8%EB%9E%99%ED%8C%AC%EC%B8%A0/542/category/27/display/1/" id="bottom"><img src="./img/fcmm_sec_main_14.jpg" alt="menu"><p class="sec_p"><br>로고 테이프 크롭 트랙팬츠<br><span class="sec_span">KRW 33,000</span> </p></a>
+                <a href="http://fcmm.kr/product/%ED%81%B4%EB%9F%BD-%EC%97%90%EC%84%BC%EC%85%9C-%ED%9B%84%EB%93%9C-%ED%99%94%EC%9D%B4%ED%8A%B8/769/category/25/display/1/" id="top"><img src="./img/fcmm_sec_main_15.jpg" alt="menu"><p class="sec_p"><br>클럽 에센셜 후드 - 화이트 <br><span class="sec_span">KRW 42,000</span> </p></a>
+                <a href="http://fcmm.kr/product/early-bird-fleece%ED%94%8C%EB%A6%AC%EC%8A%A4-%EC%9B%9C%EC%97%85-%EB%A0%88%ED%8A%B8%EB%A1%9C-%EB%A7%A8%ED%88%AC%EB%A7%A8-%EB%8B%A4%ED%81%AC-%EA%B7%B8%EB%A0%88%EC%9D%B4/703/category/26/display/1/" id="burning"><img src="./img/fcmm_sec_main_16.jpg" alt="menu"><p class="sec_p"><span class="bird">[EARLY BIRD FLEECE]</span><br>플리스 웜업 레트로 맨투맨 - 다크 그레이 <br><span class="sec_span">KRW 35,100</span> </p></a>
+            </div>
+        </div>
+    
+            
+        </section>
+
+        <footer class="site_footer">
+            <div class="f_num_pop">010 5849 0318</div>
+            <div class="f_banner">
+                <div class="f_num"> <h3> 010-5849-0318<br>AM 10:00-PM 5:00</h3></div>
+                <div class="f_num2"><a href="#!" title="010-5849-0318">번호 : hover</a></div>
+                <div class="f_copy"> COPYRIGHT &copy; 2019 HOO주식회사. ALL RIGHTS RESERVED.<br><span class="copy"> COMPANY INFO
+                    상호 : HOO주식회사   대표 : KIM MIN HOO
+                    전화 : 010-5849-0318   주소 : 195, SANGBONGJUNGANG-RO, JUNGRANG-GU, SEOUL-SI, SINCE 1999 NEWBUILDING - 4F<br>
+                    개인정보관리책임자 : KIM MIN HOO (SDH190407@SDH.HS.KR)</span></div>
+                <div class="f_sns">
+                        <img src="img/instargram.jpeg" alt="">
+                        <img src="img/facebook.png" alt="">
+                        <img src="img/twiiter.png" alt="">
+                </div>
+            </div>
+
+        </footer>
+    </div>
+</div>
+
+</body>
+</html>
